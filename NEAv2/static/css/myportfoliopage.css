@@ -1,0 +1,26 @@
+/*formats the div containing all product boxes*/
+#products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1rem;
+}
+
+/*formats the individual product boxes*/
+#product-box {
+  background: white;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*title formatting with colours*/
+h1 {
+  color: white;
+}
+
+h2 {
+  color: white;
+}

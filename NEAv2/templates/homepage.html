@@ -1,0 +1,170 @@
+<!--homepage.html-->
+<!--the html code relating to the login/registration page of quickfit.com-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--name of webstie-->
+    <title>Quickfit</title>
+
+    <!--link for stylesheet-->
+    <link
+      href="{{url_for('static',filename='css/homepage.css')}}"
+      rel="stylesheet"
+    />
+    <!--the link for the bootstrap stylesheet-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body
+    class="bg-image img-fluid"
+    style="background-image: url('static/css/backgroundlight.png')"
+  >
+    <!--the navigation bar-->
+    <header>
+      <h2 class="logo">Quickfit.com</h2>
+      <button class="loginbutton">Login</button>
+      <button class="registerbutton">Register</button>
+    </header>
+
+    <!--the login pop up box-->
+    <div class="popup" id="login">
+      <div class="form">
+        <h2>Login</h2>
+        <!--form with email and password fields-->
+        <form
+          action="{{url_for('submit_login_form')}}"
+          method="post"
+          id="loginform"
+        >
+          <div class="inputbox">
+            <div class="desc">
+              <label>Email</label>
+            </div>
+            <div class="input">
+              <input type="email" required size="40" name="email" />
+            </div>
+          </div>
+          <div class="inputbox">
+            <div class="desc">
+              <label>Password</label>
+            </div>
+            <div class="input">
+              <input type="password" required size="40" name="password" />
+            </div>
+          </div>
+
+          <!--forgot password button-->
+          <div class="forgotten">
+            <a href="forgottenpassword" style="color: #e4c5af"
+              >Forgot Password?</a
+            >
+          </div>
+          <!--submition button-->
+          <button class="submitbutton" type="submit" name="login">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!--the registration pop-up box-->
+    <div class="popupr" id="register">
+      <div class="form">
+        <h2>Register</h2>
+
+        <!--registration form with name, surname email ect fields-->
+        <form
+          action="{{url_for('submit_form')}}"
+          method="post"
+          id="registerform"
+        >
+          <div class="inputbox">
+            <div class="desc">
+              <label>Forename</label>
+            </div>
+            <div class="input">
+              <input required size="40" name="forename" />
+            </div>
+          </div>
+          <div class="inputbox">
+            <div class="desc">
+              <label>Surname</label>
+            </div>
+            <div class="input">
+              <input required size="40" name="surname" />
+            </div>
+          </div>
+          <div class="inputbox">
+            <div class="desc">
+              <label>Email</label>
+            </div>
+            <div class="input">
+              <input type="email" required size="40" name="email" />
+            </div>
+          </div>
+          <div class="inputbox">
+            <div class="desc">
+              <label>Password</label>
+            </div>
+            <div class="input">
+              <input
+                type="password"
+                required
+                size="40"
+                name="password"
+                id="password"
+              />
+            </div>
+          </div>
+          <div class="inputbox">
+            <div class="desc">
+              <label>Confirm Password</label>
+            </div>
+            <div class="input">
+              <input
+                type="password"
+                required
+                size="40"
+                name="confirmationpassword"
+                id="confirmpassword"
+              />
+            </div>
+            <!--error messages to pop up under error conditions-->
+            <p id="error" style="color: red; display: none">
+              Passwords do not match!
+            </p>
+            <p id="error1" style="color: red; display: none">
+              Password must be greater than 6 characters!
+            </p>
+          </div>
+          <!--form submition button-->
+          <button class="submitbutton" type="submit" name="register">
+            Sign Up
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!--text within the t-shirt-->
+    <p class="name">Quickfit</p>
+
+    <!--scrollable information div relating to the website-->
+    <div class="info">
+      <p class="comp-info">Welcome to the Login Page of Quickfit.com!</p>
+      <p class="comp-info">
+        If you are new please register, otherwise returning users can log in
+      </p>
+      <p class="comp-info">
+        Quickfit.com is an online clothing price tracker aimed to help inform
+        its customers when to buy select products to save the most money.
+      </p>
+    </div>
+
+    <!--link to javascript file-->
+    <script src="{{url_for('static', filename='js/homepage.js')}}"></script>
+  </body>
+</html>

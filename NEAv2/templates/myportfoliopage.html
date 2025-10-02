@@ -1,0 +1,118 @@
+<!--the my portfolio page html code-->
+
+<!--all code is interted into the block within the base html file-->
+{% extends 'base.html' %} {% block content %}
+<head>
+  <!--website name-->
+  <title>Quickfit</title>
+
+  <!--link to myportfoliopage.css for styling-->
+  <link
+    href="{{url_for('static',filename='css/myportfoliopage.css')}}"
+    rel="stylesheet"
+  />
+</head>
+
+<!--styling the background image-->
+<body style="background-image: url('static/css/backgroundlight.png')">
+  <!--personlised text to greet a user-->
+  <br />
+  <h1>Welcome, you are logged in {{current_user.forename}}</h1>
+  <br />
+  <h2>{{current_user.forename}}'s Portfolio</h2>
+  <br />
+
+  <div
+    style="display: flex; justify-content: space-between; align-items: center"
+  >
+    <!--update prices button to cause a webscrape-->
+    <form action="{{ url_for('updateprice') }}" style="margin: 0">
+      <button type="submit" class="btn btn-warning">Update Prices</button>
+    </form>
+
+    <!--Sort button to order products on the page-->
+    <div class="dropdown" style="margin-right: 50px">
+      <button
+        class="btn btn-warning dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Sort
+      </button>
+      <!--the different ways to order products by-->
+      <!--the sorting method is passed back to the route to cause a sort function to be called-->
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a
+          class="dropdown-item"
+          href="{{ url_for('myportfolio', sort='price_desc')}}"
+          >Price(high to Low)</a
+        >
+        <a
+          class="dropdown-item"
+          href="{{ url_for('myportfolio', sort='price_asc')}}"
+          >Price(low to high)</a
+        >
+        <a
+          class="dropdown-item"
+          href="{{ url_for('myportfolio', sort='alpha')}}"
+          >A to Z</a
+        >
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <br />
+  <!--div containing all product boxes-->
+  <div id="products-container">
+    {% for entry in watchlist_entries %}
+    <!--a product box with custom entries added for each product from the flask route-->
+    <div id="product-box" class="border p-3 product">
+      <img
+        src="{{entry.product.product_image}}"
+        alt="{{ entry.product.product_name }}"
+        style="width: 350px; height: 400px"
+      />
+      <br />
+      <br />
+      <h3>{{entry.product.brand|capitalize}}</h3>
+      <h3>{{entry.product.product_name}}</h3>
+      <h6>{{entry.product.description}}</h6>
+      <h6>
+        Current: £{{ latest_prices[entry.id] if latest_prices[entry.id] is not
+        none else 'N/A' }}
+      </h6>
+      <h6>Target: £{{ entry.threshold_price }}</h6>
+      <!--price analysis button-->
+      <div class="d-flex gap-2">
+        <form action="{{ url_for('price_analysis') }}" method="post">
+          <input type="hidden" name="product_id" value="{{ entry.id }}" />
+          <button class="btn btn-primary" type="submit">Price Analysis</button>
+        </form>
+        <br />
+        <!--remove from watchlist button-->
+        <form action="{{ url_for('removefromwatchlist') }}" method="post">
+          <input type="hidden" name="product_id" value="{{ entry.id }}" />
+          <button class="btn btn-danger" type="submit">
+            Remove from Watchlist
+          </button>
+        </form>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <br />
+  <br />
+  <!-- Include jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <!-- Include Popper.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <!-- Include Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+{% endblock %}

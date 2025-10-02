@@ -1,0 +1,25 @@
+<!--Price anaylsis page to view statistics on custom products-->
+
+<!--all code follows on from the base.html file and is inserted in the block there-->
+{% extends 'base.html' %} {% block content %}
+<head>
+  <!--name of the page-->
+  <title>Quickfit: Price Analysis</title>
+</head>
+<body>
+  <!--details of products inserted from the flask route-->
+  <h1>Price Analysis for {{product_name}}</h1>
+  <br />
+  <br />
+  <img src="{{ product_image }}" alt="{{ product_name }}" />
+  <h2>The average price of this product is: £{{mean_price}}</h2>
+  <h2>Variance: {{variance}}</h2>
+  <h2>Standard Deviation: {{standard_deviation}}</h2>
+  <h2>Mode Price: £{{mode_price}}</h2>
+  <h2>Median Price: £{{median_price}}</h2>
+
+  <!--price analysis graph image shown-->
+  <img src="data:image/png;base64,{{ plot_image }}" alt="Price History Plot" />
+</body>
+
+{% endblock %}

@@ -1,0 +1,219 @@
+/*css for the login and registration page*/
+
+/*generic styling for the whole */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppinns", "sans-serif";
+}
+
+/*styling all items in the body tag including background image styling*/
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 40000px;
+}
+
+/*styling of the navigation bar*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 9%;
+  display: flex;
+  align-items: center;
+  z-index: 99;
+}
+
+/*styling of the Quickfit name in the top left corner*/
+.logo {
+  font-size: 2em;
+  color: #ffffff;
+  user-select: none;
+  padding-left: 20px;
+  margin-right: 65%;
+}
+
+/*styling of the login button (within the navigation bar)*/
+.loginbutton {
+  color: white;
+  width: 120px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #ffffff;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-right: 2%;
+  transition: 0.5s;
+}
+
+/*styling of the registration button (within the navigation bar)*/
+.registerbutton {
+  color: white;
+  width: 120px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #ffffff;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+/*making the login/register buttons dynamic upon hovering a cursor*/
+.loginbutton:hover {
+  background: #ffffff;
+  color: #000000;
+}
+.registerbutton:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/*styling the quickfit logo within the shirt*/
+.name {
+  position: fixed;
+  top: 675px;
+  left: 760px;
+  color: #fed0bb;
+  font-size: 50px;
+  font-family: "monserrat";
+  z-index: 5;
+}
+
+/*syling the login pop-up box */
+.popup {
+  position: fixed;
+  width: 450px;
+  top: 140px;
+  left: 520px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  z-index: 50;
+}
+
+/*syling the registration pop-up box */
+.popupr {
+  position: fixed;
+  top: 70px;
+  left: 520px;
+  width: 500px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  z-index: 50;
+}
+
+/*creating the size of the pop up register and logo boxes*/
+#register {
+  height: 740px;
+}
+#login {
+  height: 440px;
+}
+
+/*creating a dynamic pop-up so boxes grow in size*/
+#login.active-popup {
+  transform: scale(1);
+}
+.popupr.active-popupr {
+  transform: scale(1);
+}
+
+/*below is the styling of elements within the pop-up boxes*/
+.popup .form {
+  width: 100%;
+  padding: 40px;
+}
+
+.form h2 {
+  font-size: 2em;
+  color: #ffffff;
+  text-align: center;
+  margin: 20px;
+}
+.desc {
+  color: #ffffff;
+  padding: 5px;
+  font-size: 1em;
+}
+
+.inputbox {
+  padding: 20px;
+}
+
+.submitbutton {
+  width: 280px;
+  height: 50px;
+  background: #5688c7;
+  border: 2px solid #5688c7;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.4em;
+  outline: none;
+  color: #ffffff;
+  margin-left: 20px;
+  margin-top: 40px;
+  transition: 0.5s;
+}
+
+.submitbutton:hover {
+  background: #7ae7c7;
+  border: 2px solid #7ae7c7;
+}
+
+/*styling of the forgotten password button*/
+.forgotten {
+  margin-left: 20px;
+}
+
+/*styling the scrollable information box*/
+.info {
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  height: 400px;
+  width: 800px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 350px;
+  position: relative;
+  top: 900px;
+  z-index: 10;
+  padding: 5px;
+  left: 180px;
+  backdrop-filter: blur(30px);
+}
+
+/*styling the text in the info-box*/
+.comp-info {
+  color: #ffffff;
+  font-size: 1.5em;
+}

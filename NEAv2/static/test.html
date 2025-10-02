@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fixed Items on Scroll</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 50px; /* Leave space for the header */
+        left: 0;
+        width: 200px;
+        background-color: #f0f0f0;
+        padding: 10px;
+      }
+
+      .content {
+        margin-top: 50px; /* Leave space for the header */
+        margin-left: 220px; /* Leave space for the sidebar */
+        padding: 20px;
+      }
+
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">Header - Fixed on top</div>
+    <div class="sidebar">Sidebar - Fixed on the left</div>
+    <div class="content">
+      <h1>Main Content</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo
+        viverra libero id laor<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />eet.
+        Nunc volutpat nulla vitae erat laoreet, ut eleifend velit dignissim.
+        Maecenas variu <br />s auctor ipsum, eu euismod justo lacinia at. Proin
+        pharet<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        diam vitae turpis laoreet, et rutrum nunc lacinia. Integer tincidunt
+        purus ut finibu<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />s
+        posuere. ljnsdlkvnslkdncksndklcnklsd jkancjansjcnjansjcnajsc
+        askjcnbajkscjkanscj
+      </p>
+      <!-- More content goes here -->
+    </div>
+    <div class="footer">Footer - Fixed at the bottom</div>
+  </body>
+</html>
